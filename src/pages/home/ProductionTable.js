@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import CommonTable from "../../components/ui/CommonTable";
 
-const ProductionTable = ({ data, columns, nextHandler, prevHandler }) => {
-  console.log(data)
+const ProductionTable = ({ data, columns, nextHandler, prevHandler, currentPage }) => {
+
   const buildItems = (__items) => {
     return (
       __items &&
       __items.length > 0 &&
-      __items.map((item) => (
+      __items.map((item, index) => (
         <tr key={index}>
           <td>{item.year}</td>
           <td>{item.month}</td>
@@ -33,8 +33,8 @@ const ProductionTable = ({ data, columns, nextHandler, prevHandler }) => {
       <CommonTable
         nextHandler={nextHandler}
         prevHandler={prevHandler}
-        currentPage={0}
         columns={columns}
+        currentPage={currentPage}
         items={buildItems(data)}
       />
     </>

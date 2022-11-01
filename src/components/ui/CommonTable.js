@@ -8,7 +8,7 @@ export default function CommonTable({
   // console.log(items);
   return (
     <>
-      <h2>Page: {currentPage}</h2>
+      <h2>Page: {items ? currentPage + 1 : currentPage}</h2>
       <button onClick={prevHandler}>Prev</button>
       <button onClick={nextHandler}>Next</button>
 

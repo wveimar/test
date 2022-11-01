@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import CSVReader from "react-csv-reader";
 import ProductionTable from "./ProductionTable";
+import { TableProduction } from "./TableProduction";
 
 
 const Production = () => {
@@ -18,7 +19,7 @@ const Production = () => {
 
   const handleFile = (data, fileInfo) => {
     setTotalData(data);
-    // console.log(data, fileInfo);
+    console.log(data);
     setDataCsv(data.splice(0, ITEMS_PER_PAGE));
   };
 
@@ -53,7 +54,8 @@ const Production = () => {
         onFileLoaded={handleFile}
         parserOptions={papaparseOptions}
       />
-      <ProductionTable
+      <TableProduction data={dataCsv}/>
+      {/* <ProductionTable
         nextHandler={nextHandler}
         prevHandler={prevHandler}
         currentPage={currentPage}
@@ -74,7 +76,7 @@ const Production = () => {
           "Pressure",
           "Status",
         ]}
-      />
+      /> */}
     </>
   );
 };
